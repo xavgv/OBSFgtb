@@ -12,7 +12,7 @@ window.EVENT_DATA = {
   hashtag: "@FGTB",
 
   // Patrocinadores
-  sponsors: ["sponsor1.png", "sponsor2.png", "sponsor3.png"],
+  sponsors: ["logos/usc.png", "logos/tllc.png", "logos/ministerio.png"],
 
   // Días y agenda
   days: [
@@ -55,7 +55,7 @@ window.EVENT_DATA = {
   intro: {
     headline: "Fundación Gonzalo Torrente Ballester",
     subhead: "Sigue en directo as ponencias e intervencións da I Xornada internacional sobre arquivos de escritor",
-    place: "Campus universitario",
+    place: "Rúa do Vilar, 7",
     web: "www.fgtb.gal",
     email: "jornadas@university.edu",
   },
