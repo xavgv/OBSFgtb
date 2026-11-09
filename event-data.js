@@ -8,7 +8,7 @@ window.EVENT_DATA = {
   logo: "logo.png",
   university: "Fundacion Gonzalo Torrente Ballester",
   eventTitle: "I Xornada internacional sobre arquivos de escritor",
-  eventDate: "Xoves 12 e Viernes 13 de novembro de 2026",
+  eventDate: "Xoves 12 e Venres 13 de novembro de 2026",
   hashtag: "@FGTB",
 
   // Patrocinadores
@@ -28,7 +28,7 @@ window.EVENT_DATA = {
       ]
     },
     {
-      label: "Viernes 13 nov",
+      label: "Venres 13 nov",
       date: "2026-11-13",
       agenda: [
         { time: "10:45", title: "Proyecto de Biblioteca digital Emilia Pardo Bazan", speaker: "Catherine Orsini", room: "Fundacion Gonzalo Torrente Ballester", desc: "Presentación del proyecto de biblioteca digital Emilia Pardo Bazan.", state: "active" },
