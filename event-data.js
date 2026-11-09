@@ -48,7 +48,7 @@ window.EVENT_DATA = {
     live: "En directo",
     topic: "Tema: ",
     ctrlTitle: "Ponente en pantalla",
-    ctrlHint: "Clic en un ponente para actualizar el lower third. El panel se oculta con ⚙.",
+    ctrlHint: "",
   },
 
   // Textos del overlay de intro (columna principal, footer)
@@ -57,7 +57,7 @@ window.EVENT_DATA = {
     subhead: "Sigue en directo as ponencias e intervencións da I Xornada internacional sobre arquivos de escritor",
     place: "Rúa do Vilar, 7",
     web: "www.fgtb.gal",
-    email: "jornadas@university.edu",
+    email: "fgtb@fgtb.org",
   },
 
   // Ponentes (para lower thirds)
