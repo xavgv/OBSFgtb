@@ -31,13 +31,10 @@ window.EVENT_DATA = {
       label: "Viernes 13 nov",
       date: "2026-11-13",
       agenda: [
-        { time: "09:30", title: "Apertura del segundo día", speaker: "Organización", room: "Fundacion Gonzalo Torrente Ballester", desc: "Resumen del día anterior y agenda del día.", state: "active" },
-        { time: "10:00", title: "Ética en la investigación", speaker: "Dra. Ana Torres", room: "Fundacion Gonzalo Torrente Ballester", desc: "Principios éticos en la investigación académica.", state: "" },
-        { time: "11:00", title: "Comunicaciones libres", speaker: "Varios autores", room: "Fundacion Gonzalo Torrente Ballester", desc: "Presentación de trabajos seleccionados.", state: "" },
-        { time: "12:00", title: "Pausa café", speaker: "—", room: "Fundacion Gonzalo Torrente Ballester", desc: "Descanso y networking.", state: "" },
-        { time: "12:30", title: "Taller: escritura científica", speaker: "Dr. Carlos Ruiz", room: "Fundacion Gonzalo Torrente Ballester", desc: "Claves para publicar en revistas indexadas.", state: "" },
-        { time: "14:00", title: "Clausura final", speaker: "Rectorado", room: "Fundacion Gonzalo Torrente Ballester", desc: "Cierre de las jornadas y despedida.", state: "" },
-      ]
+        { time: "10:45", title: "Proyecto de Biblioteca digital Emilia Pardo Bazan", speaker: "Catherine Orsini", room: "Fundacion Gonzalo Torrente Ballester", desc: "Presentación del proyecto de biblioteca digital Emilia Pardo Bazan.", state: "active" },
+        { time: "11:30", title: "El archivo de Gonzalo Torrente", speaker: "Antonio J. Gil", room: "Fundacion Gonzalo Torrente Ballester", desc: "El archivo de Gonzalo Torrente Ballester y La saga/fuga de J.B. Un proyecto de dossier genético", state: "" },
+        { time: "12:15", title: "Peche", speaker: "Fernando Redondo", room: "Fundacion Gonzalo Torrente Ballester", desc: "A Fundación Xosé Neira Vilas: De biblioteca no rural a centro de documentación e estudo", state: "" },
+        { time: "12:00", title: "Visita a exposición", speaker: "Carmen Becerra", room: "Fundacion Gonzalo Torrente Ballester", desc: "Visita a exposición permanente da Fundación Gonzalo Torrente Ballester", state: "" },      ]
     },
   ],
 
@@ -60,10 +57,13 @@ window.EVENT_DATA = {
 
   // Ponentes (para lower thirds)
   speakers: [
-    { name: "Dr. Antonio Jesús Gil Gonzalez", role: "Director", affiliation: "Universidade de Santiago de Compostela", topic: "Presentador" },
+    { name: "Antonio Jesús Gil Gonzalez", role: "Director", affiliation: "Universidade de Santiago de Compostela, FGTB", topic: "Presentador" },
     { name: "Diego Rodríguez Fer", role: "Ponente", affiliation: "Real Academia Galega", topic: "De Galicia ao Infinito" },
     { name: "Claudio Rodríguez Fer", role: "Ponente", affiliation: "Universidade de Santiago de Compostela", topic: "Metodologías activas de aprendizaje" },
     { name: "Gustavo Garrido", role: "Ponente", affiliation: "Fundacion Carlos Casares", topic: "O Arquivo de Carlos Casares" },
     { name: "Lourdes Regueiro", role: "Ponente", affiliation: "Fundacion Camilo José Cela", topic: "Seminario de traballo" },
+    { name: "Catherine Orsini", role: "Ponente", affiliation: "Universidade de Grenoble-Alpes", topic: "Proyecto de Biblioteca digital Emilia Pardo Bazan" },
+    { name: "Fernando Redondo", role: "Ponente", affiliation: "USC, Fundación Xosé Neira Vilas", topic: "A Fundación Xosé Neira Vilas" },
+    { name: "Carmen Becerra", role: "Ponente", affiliation: "Fundación Gonzalo Torrente Ballester", topic: "Visita a exposición" },
   ]
 };
