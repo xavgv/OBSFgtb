@@ -17,28 +17,26 @@ window.EVENT_DATA = {
   // Días y agenda
   days: [
     {
-      label: "Día 1 · Xoves 12 nov",
+      label: "Xoves 12 nov",
       date: "2026-11-12",
       agenda: [
-        { time: "09:00", title: "Acreditación y bienvenida", speaker: "Organización", room: "Hall", desc: "Recepción de asistentes y entrega de material.", state: "past" },
-        { time: "09:30", title: "Conferencia inaugural", speaker: "Prof. Juan Pérez", room: "Aula Magna", desc: "Visión general del programa y objetivos de las jornadas.", state: "past" },
-        { time: "10:00", title: "IA y educación: retos y oportunidades", speaker: "Dra. María García", room: "Aula Magna", desc: "Cómo la inteligencia artificial transforma la enseñanza y el aprendizaje.", state: "active" },
-        { time: "11:00", title: "Mesa redonda: investigación aplicada", speaker: "Varios ponentes", room: "Sala B", desc: "Debate sobre transferencia de conocimiento a la sociedad.", state: "" },
-        { time: "12:00", title: "Pausa café", speaker: "—", room: "Cafetería", desc: "Descanso y networking entre asistentes.", state: "" },
-        { time: "12:30", title: "Taller: metodologías activas", speaker: "Dr. Luis Martín", room: "Sala C", desc: "Sesión práctica de técnicas de aprendizaje participativo.", state: "" },
-        { time: "13:30", title: "Clausura y entrega de diplomas", speaker: "Rectorado", room: "Aula Magna", desc: "Cierre institucional y entrega de certificados.", state: "" },
+        { time: "10:00", title: "Presentación", speaker: "Anxo Lorenzo, Fernanda Torrente, Antonio J.Gil", room: "Fundacion Gonzalo Torrente Ballester", desc: "Visita á fundación e exposición de manuscritos", state: "past" },
+        { time: "11:00", title: "Apertura", speaker: "Diego Rodríguez", room: "Fundacion Gonzalo Torrente Ballester", desc: "Autores sen arquivo: Rosalía de Castro", state: "past" },
+        { time: "11:45", title: "De Galicia ao Infinito", speaker: "Claudio Rodríguez Fer", room: "Fundacion Gonzalo Torrente Ballester", desc: "De Galicia ao Infinito: O arquivo intercultural e interartístico da Cátedra Valente", state: "active" },
+        { time: "12:30", title: "O Arquivo de Carlos Casares", speaker: "Gustavo Garrido", room: "Fundacion Gonzalo Torrente Ballester", desc: "Presentacion sobre o arquivo da fundación Carlos Casares", state: "" },
+        { time: "13:15", title: "Seminario de traballo", speaker: "Lourdes Regueiro", room: "Fundacion Gonzalo Torrente Ballester", desc: "Seminario de traballo da Fundacion Camilo José Cela", state: "" },
       ]
     },
     {
-      label: "Día 2 · Martes 13 nov",
-      date: "2026-11-11",
+      label: "Viernes 13 nov",
+      date: "2026-11-13",
       agenda: [
-        { time: "09:30", title: "Apertura del segundo día", speaker: "Organización", room: "Aula Magna", desc: "Resumen del día anterior y agenda del día.", state: "active" },
-        { time: "10:00", title: "Ética en la investigación", speaker: "Dra. Ana Torres", room: "Aula Magna", desc: "Principios éticos en la investigación académica.", state: "" },
-        { time: "11:00", title: "Comunicaciones libres", speaker: "Varios autores", room: "Sala B", desc: "Presentación de trabajos seleccionados.", state: "" },
-        { time: "12:00", title: "Pausa café", speaker: "—", room: "Cafetería", desc: "Descanso y networking.", state: "" },
-        { time: "12:30", title: "Taller: escritura científica", speaker: "Dr. Carlos Ruiz", room: "Sala C", desc: "Claves para publicar en revistas indexadas.", state: "" },
-        { time: "14:00", title: "Clausura final", speaker: "Rectorado", room: "Aula Magna", desc: "Cierre de las jornadas y despedida.", state: "" },
+        { time: "09:30", title: "Apertura del segundo día", speaker: "Organización", room: "Fundacion Gonzalo Torrente Ballester", desc: "Resumen del día anterior y agenda del día.", state: "active" },
+        { time: "10:00", title: "Ética en la investigación", speaker: "Dra. Ana Torres", room: "Fundacion Gonzalo Torrente Ballester", desc: "Principios éticos en la investigación académica.", state: "" },
+        { time: "11:00", title: "Comunicaciones libres", speaker: "Varios autores", room: "Fundacion Gonzalo Torrente Ballester", desc: "Presentación de trabajos seleccionados.", state: "" },
+        { time: "12:00", title: "Pausa café", speaker: "—", room: "Fundacion Gonzalo Torrente Ballester", desc: "Descanso y networking.", state: "" },
+        { time: "12:30", title: "Taller: escritura científica", speaker: "Dr. Carlos Ruiz", room: "Fundacion Gonzalo Torrente Ballester", desc: "Claves para publicar en revistas indexadas.", state: "" },
+        { time: "14:00", title: "Clausura final", speaker: "Rectorado", room: "Fundacion Gonzalo Torrente Ballester", desc: "Cierre de las jornadas y despedida.", state: "" },
       ]
     },
   ],
@@ -63,8 +61,9 @@ window.EVENT_DATA = {
   // Ponentes (para lower thirds)
   speakers: [
     { name: "Dr. Antonio Jesús Gil Gonzalez", role: "Director", affiliation: "Universidade de Santiago de Compostela", topic: "Presentador" },
-    { name: "Prof. Juan Pérez", role: "Conferenciante inaugural", affiliation: "Universidad", topic: "Visión general de las jornadas" },
-    { name: "Dr. Luis Martín", role: "Taller", affiliation: "Universidad", topic: "Metodologías activas de aprendizaje" },
-    { name: "Dra. Ana Torres", role: "Ponente", affiliation: "Universidad", topic: "Ética en la investigación" },
+    { name: "Diego Rodríguez Fer", role: "Ponente", affiliation: "Real Academia Galega", topic: "De Galicia ao Infinito" },
+    { name: "Claudio Rodríguez Fer", role: "Ponente", affiliation: "Universidade de Santiago de Compostela", topic: "Metodologías activas de aprendizaje" },
+    { name: "Gustavo Garrido", role: "Ponente", affiliation: "Fundacion Carlos Casares", topic: "O Arquivo de Carlos Casares" },
+    { name: "Lourdes Regueiro", role: "Ponente", affiliation: "Fundacion Camilo José Cela", topic: "Seminario de traballo" },
   ]
 };
