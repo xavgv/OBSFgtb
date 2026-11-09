@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Overlay Principal - Jornadas Universitarias</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="event-data.js"></script>
+<style>
+  :root {
+    --beige-50: #faf6ef;
+    --beige-100: #f5efe4;
+    --beige-200: #ece2d0;
+    --beige-300: #e0d2b8;
+    --gold: #c9a96e;
+    --gold-dark: #a8894f;
+    --brown-900: #2c2416;
+    --brown-700: #4a3a24;
+    --brown-500: #7a6444;
+    --shadow: 0 16px 40px rgba(44,36,22,0.22);
+    --shadow-soft: 0 6px 18px rgba(44,36,22,0.14);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 100%; height: 100%; overflow: hidden;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--brown-900);
+    background: transparent;
+  }
+  .stage { position: relative; width: 100vw; height: 100vh; background: transparent; }
+
+  /* Top-left branding */
+  .brand {
+    position: absolute; top: 28px; left: 36px;
+    display: flex; align-items: center; gap: 14px;
+    background: rgba(250,246,239,0.78);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(44,36,22,0.10);
+    border-radius: 16px;
+    padding: 10px 18px 10px 10px;
+    box-shadow: var(--shadow-soft);
+  }
+  .logo-box {
+    width: 80px; height: 80px; border-radius: 12px;
+    background: #ffffff; display: flex; align-items: center; justify-content: center;
+    border: 1px solid rgba(44,36,22,0.08); padding: 5px; overflow: hidden;
+    box-shadow: var(--shadow-soft);
+  }
+  .logo-box img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+  .brand-text .uni { font-size: 10px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--brown-500); }
+  .brand-text .event { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--brown-900); line-height: 1.1; margin-top: 1px; }
+
+  /* Top-right live + hashtag */
+  .top-right {
+    position: absolute; top: 28px; right: 36px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .live-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--brown-900); color: var(--beige-50);
+    padding: 8px 14px; border-radius: 999px;
+    font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+    box-shadow: var(--shadow-soft);
+  }
+  .live-badge .dot {
+    width: 8px; height: 8px; border-radius: 50%; background: #e85d4a;
+    box-shadow: 0 0 0 0 rgba(232,93,74,0.6); animation: pulse 1.6s infinite;
+  }
+  @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(232,93,74,0.6);} 70%{box-shadow:0 0 0 10px rgba(232,93,74,0);} 100%{box-shadow:0 0 0 0 rgba(232,93,74,0);} }
+  .hashtag {
+    background: rgba(250,246,239,0.78); backdrop-filter: blur(10px);
+    border: 1px solid rgba(44,36,22,0.10); border-radius: 999px;
+    padding: 8px 14px; font-size: 12px; font-weight: 600; color: var(--brown-700);
+    box-shadow: var(--shadow-soft);
+  }
+
+  /* Lower third */
+  .lower-third {
+    position: absolute; left: 36px; bottom: 36px;
+    max-width: 760px;
+    background: rgba(250,246,239,0.86);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(44,36,22,0.12);
+    border-radius: 18px;
+    padding: 18px 24px;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--gold);
+    transition: transform .35s ease, opacity .35s ease;
+  }
+  .lower-third.hidden { transform: translateY(20px); opacity: 0; pointer-events: none; }
+  .lt-role {
+    font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--gold-dark); margin-bottom: 4px;
+  }
+  .lt-name {
+    font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700;
+    color: var(--brown-900); line-height: 1.1; margin-bottom: 4px;
+  }
+  .lt-affil { font-size: 13px; color: var(--brown-500); margin-bottom: 8px; }
+  .lt-topic {
+    font-size: 14px; color: var(--brown-700); line-height: 1.4;
+    padding-top: 8px; border-top: 1px solid rgba(44,36,22,0.10);
+  }
+  .lt-topic::before { content: var(--topic-label, "Tema: "); font-weight: 600; color: var(--brown-900); }
+
+  /* Control panel (toggle) */
+  .ctrl-toggle {
+    position: absolute; top: 28px; right: 36px; margin-top: 52px;
+    /* placed below top-right cluster via offset */
+  }
+  /* put toggle at bottom-left of top-right area instead */
+  .ctrl-btn {
+    position: absolute; right: 36px;
+    width: 40px; height: 40px; border-radius: 12px;
+    background: rgba(250,246,239,0.78); backdrop-filter: blur(10px);
+    border: 1px solid rgba(44,36,22,0.10); color: var(--brown-700);
+    font-size: 18px; cursor: pointer; box-shadow: var(--shadow-soft);
+    display: flex; align-items: center; justify-content: center;
+    user-select: none;
+  }
+  .ctrl-btn:hover { background: rgba(255,255,255,0.9); }
+  #ctrlBtn { top: 86px; }
+  .ctrl-panel {
+    position: absolute; top: 186px; right: 36px;
+    width: 300px; max-height: 60vh; overflow-y: auto;
+    background: rgba(250,246,239,0.92); backdrop-filter: blur(12px);
+    border: 1px solid rgba(44,36,22,0.12); border-radius: 16px;
+    padding: 16px; box-shadow: var(--shadow);
+    display: none;
+  }
+  .ctrl-panel.open { display: block; }
+  .ctrl-title {
+    font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--brown-500); margin-bottom: 10px;
+  }
+  .ctrl-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ctrl-item {
+    padding: 10px 12px; border-radius: 10px;
+    background: rgba(255,255,255,0.5); border: 1px solid rgba(44,36,22,0.06);
+    cursor: pointer; transition: background .2s ease, border-color .2s ease;
+  }
+  .ctrl-item:hover { background: rgba(255,255,255,0.8); border-color: rgba(201,169,110,0.4); }
+  .ctrl-item.active { background: linear-gradient(135deg, rgba(201,169,110,0.30), rgba(201,169,110,0.10)); border-color: rgba(201,169,110,0.55); }
+  .ctrl-item .nm { font-size: 13px; font-weight: 600; color: var(--brown-900); }
+  .ctrl-item .rl { font-size: 11px; color: var(--brown-500); margin-top: 2px; }
+  .ctrl-row {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(44,36,22,0.10);
+  }
+  .ctrl-row label { font-size: 12px; color: var(--brown-700); font-weight: 500; }
+  .toggle {
+    width: 40px; height: 22px; border-radius: 999px; background: var(--beige-300);
+    position: relative; cursor: pointer; transition: background .2s ease;
+  }
+  .toggle.on { background: var(--gold); }
+  .toggle::after {
+    content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px;
+    border-radius: 50%; background: #fff; transition: transform .2s ease; box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  }
+  .toggle.on::after { transform: translateX(18px); }
+  .ctrl-hint { font-size: 10px; color: var(--brown-500); font-style: italic; margin-top: 8px; }
+
+  /* Animación de entrada del lower third */
+  @keyframes slideIn { from { transform: translateX(-30px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+  .lower-third.show { animation: slideIn .45s ease both; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <!-- Branding -->
+  <div class="brand">
+    <div class="logo-box"><img src="logo.png" alt="Logo" onerror="var p=this.parentElement; this.style.display='none'; p.style.color='#2c2416'; p.style.fontFamily='Playfair Display, serif'; p.style.fontSize='18px'; p.style.fontWeight='700'; p.textContent='U';"></div>
+    <div class="brand-text">
+      <div class="uni">Universidad · Facultad</div>
+      <div class="event">Jornadas Académicas</div>
+    </div>
+  </div>
+
+  <!-- Top right -->
+  <div class="top-right">
+    <div class="live-badge"><span class="dot"></span> <span id="liveLabel">En directo</span></div>
+    <div class="hashtag">#JornadasUniversitarias</div>
+  </div>
+
+  <!-- Control toggle -->
+  <div class="ctrl-btn" id="ctrlBtn" title="Panel de control">⚙</div>
+  <div class="ctrl-panel" id="ctrlPanel">
+    <div class="ctrl-title" id="ctrlTitle">Ponente en pantalla</div>
+    <ul class="ctrl-list" id="ctrlList"></ul>
+    <div class="ctrl-hint" id="ctrlHint">Clic en un ponente para actualizar el lower third. El panel se oculta con ⚙.</div>
+  </div>
+
+  <!-- Lower third -->
+  <div class="lower-third" id="lowerThird">
+    <div class="lt-role" id="ltRole">Ponente</div>
+    <div class="lt-name" id="ltName">Nombre del ponente</div>
+    <div class="lt-affil" id="ltAffil">Afiliación</div>
+    <div class="lt-topic" id="ltTopic">Tema de la ponencia</div>
+  </div>
+
+
+</div>
+
+<script>
+const CONFIG = Object.assign({}, window.EVENT_DATA || {}, {
+  currentSpeaker: 0
+});
+
+let currentIdx = 0;
+
+function applyConfig() {
+  const logoImg = document.querySelector('.logo-box img');
+  if (logoImg && CONFIG.logo) logoImg.src = CONFIG.logo;
+  document.querySelector('.uni').textContent = CONFIG.university;
+  document.querySelector('.event').textContent = CONFIG.eventTitle;
+  document.querySelector('.hashtag').textContent = CONFIG.hashtag;
+  const L = (CONFIG.labels || {});
+  const liveEl = document.getElementById('liveLabel');
+  if (liveEl) liveEl.textContent = L.live || 'En directo';
+  const ct = document.getElementById('ctrlTitle');
+  if (ct) ct.textContent = L.ctrlTitle || 'Ponente en pantalla';
+  const ch = document.getElementById('ctrlHint');
+  if (ch) ch.textContent = L.ctrlHint || 'Clic en un ponente para actualizar el lower third. El panel se oculta con ⚙.';
+  const topicLabel = L.topic || 'Tema: ';
+  document.documentElement.style.setProperty('--topic-label', JSON.stringify(topicLabel));
+}
+
+function loadState() {
+  try {
+    const ci = localStorage.getItem('mainCurrentSpeaker');
+    if (ci !== null) currentIdx = parseInt(ci, 10) || 0;
+    if (CONFIG.currentSpeaker !== undefined && localStorage.getItem('mainCurrentSpeaker') === null) {
+      currentIdx = CONFIG.currentSpeaker;
+    }
+  } catch (e) {}
+  if (currentIdx >= CONFIG.speakers.length) currentIdx = 0;
+}
+
+function saveState() {
+  try {
+    localStorage.setItem('mainCurrentSpeaker', String(currentIdx));
+  } catch (e) {}
+}
+
+function updateLowerThird() {
+  const s = CONFIG.speakers[currentIdx];
+  document.getElementById('ltRole').textContent = s.role;
+  document.getElementById('ltName').textContent = s.name;
+  document.getElementById('ltAffil').textContent = s.affiliation;
+  document.getElementById('ltTopic').textContent = s.topic;
+  const lt = document.getElementById('lowerThird');
+  lt.classList.remove('show');
+  void lt.offsetWidth;
+  lt.classList.add('show');
+}
+
+function renderCtrlList() {
+  const list = document.getElementById('ctrlList');
+  list.innerHTML = '';
+  CONFIG.speakers.forEach((s, i) => {
+    const li = document.createElement('li');
+    li.className = 'ctrl-item' + (i === currentIdx ? ' active' : '');
+    li.innerHTML = `<div class="nm">${s.name}</div><div class="rl">${s.role} · ${s.affiliation}</div>`;
+    li.addEventListener('click', () => { currentIdx = i; saveState(); updateLowerThird(); renderCtrlList(); });
+    list.appendChild(li);
+  });
+}
+
+// Toggle panel
+document.getElementById('ctrlBtn').addEventListener('click', () => {
+  document.getElementById('ctrlPanel').classList.toggle('open');
+});
+applyConfig();
+loadState();
+updateLowerThird();
+renderCtrlList();
+</script>
+</body>
+</html>
