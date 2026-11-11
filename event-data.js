@@ -7,7 +7,7 @@ window.EVENT_DATA = {
   // Marca
   logo: "logo.png",
   university: "Fundacion Gonzalo Torrente Ballester",
-  eventTitle: "I Xornada Internacional sobre Arquivos de Escritor",
+  eventTitle: "",
   eventDate: "Xoves 12 e Venres 13 de novembro de 2026",
   hashtag: "@FGTB",
 
@@ -48,8 +48,8 @@ window.EVENT_DATA = {
 
   // Textos del overlay de intro (columna principal, footer)
   intro: {
-    headline: "Fundación Gonzalo Torrente Ballester",
-    subhead: "Sigue en directo as ponencias e intervencións da I Xornada internacional sobre arquivos de escritor",
+    headline: "I Xornada Internacional sobre Arquivos de Escritor",
+    subhead: "Bibliotecas e arquivos de autores galegos",
     place: "Rúa do Vilar, 7",
     web: "www.fgtb.gal",
     email: "fgtb@fgtb.org",
