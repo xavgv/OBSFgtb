@@ -34,7 +34,7 @@ window.EVENT_DATA = {
         { time: "10:45", title: "O Proxecto de Biblioteca digital Emilia Pardo Bazan", speaker: "Catherine Orsini", room: "Fundacion Gonzalo Torrente Ballester", desc: "Presentación do proxecto de biblioteca dixital Emilia Pardo Bazan.", state: "active" },
         { time: "11:30", title: "O arquivo de Gonzalo Torrente Ballester e La saga/fuga de J.B. Un proxecto de dossier xenético", speaker: "Antonio J. Gil", room: "Fundacion Gonzalo Torrente Ballester", desc: "Estudio de caso sobre o arquivo do ecritor e a crítica xenética", state: "" },
         { time: "12:15", title: "Peche", speaker: "Fernando Redondo", room: "Fundacion Gonzalo Torrente Ballester", desc: "A Fundación Xosé Neira Vilas: De biblioteca no rural a centro de documentación e estudo", state: "" },
-        { time: "12:00", title: "Visita a exposición", speaker: "Carmen Becerra", room: "Fundacion Gonzalo Torrente Ballester", desc: "Visita a exposición permanente da Fundación Gonzalo Torrente Ballester", state: "" },      ]
+        { time: "13:00", title: "Visita a exposición", speaker: "Carmen Becerra", room: "Fundacion Gonzalo Torrente Ballester", desc: "Visita a exposición permanente da Fundación Gonzalo Torrente Ballester", state: "" },      ]
     },
   ],
 
