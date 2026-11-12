@@ -382,9 +382,9 @@
         <h2 class="next-title" id="nextTitle">Título de la ponencia</h2>
         <p class="next-desc" id="nextDesc">Descripción breve del tema a tratar en esta ponencia.</p>
         <div class="next-meta">
-          <span><span class="ico">👤</span><span id="nextSpeaker">Nombre del ponente</span></span>
-          <span><span class="ico">🕐</span><span id="nextTime">00:00</span></span>
-          <span><span class="ico">📍</span><span id="nextRoom">Aula / Sala</span></span>
+          <span><span class="ico">🕐</span><span id="nextTime"></span></span>
+          <span><span class="ico">👤</span><span id="nextSpeaker"></span></span>
+          <span><span class="ico">🎓</span><span id="nextAffiliation"></span></span>
         </div>
       </article>
     </main>
@@ -535,7 +535,7 @@ function updateCard(idx) {
   document.getElementById('nextDesc').textContent = a.desc || '';
   document.getElementById('nextSpeaker').textContent = a.speaker;
   document.getElementById('nextTime').textContent = a.time;
-  document.getElementById('nextRoom').textContent = a.room || '—';
+  document.getElementById('nextAffiliation').textContent = a.affiliation || '—';
 }
 
 function renderDayTabs() {
